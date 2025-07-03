@@ -1,0 +1,20 @@
+.hero-section {
+  background-color: #A8E6CF;
+  color: #333333;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.hero-btn {
+  background-color: #56C596;
+  border-color: #56C596;
+  color: #FFFFFF;
+  font-size: 1.25rem;
+  padding: 12px 30px;
+}
+
+.hero-btn:hover {
+  background-color: #9DEBC3;
+  border-color: #9DEBC3;
+  color: #FFFFFF;
+}

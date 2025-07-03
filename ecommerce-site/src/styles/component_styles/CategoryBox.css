@@ -1,0 +1,28 @@
+.category-container {
+  margin-top: 40px;
+  padding-bottom: 40px;
+}
+
+.category-box {
+  width: 90%;
+  max-width: 1000px;
+  background-color: #ffffff;
+  border: 1px solid #c5f0dc;
+  border-radius: 0.75rem;
+}
+
+.featured-category {
+  font-weight: bold;
+  color: #56c596;
+  background-color: #d7fff1;
+  border-left: 5px solid #56c596;
+}
+
+.list-group-item {
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.list-group-item:hover {
+  background-color: #e8fef6;
+}
