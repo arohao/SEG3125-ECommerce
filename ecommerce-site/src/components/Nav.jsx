@@ -2,8 +2,11 @@ import { NavLink, Link } from 'react-router-dom'
 import '../styles/component_styles/Nav.css'
 import SearchIcon from '../assets/icons/search-icon.svg'
 import CartIcon from '../assets/icons/cart-icon.svg'
+import { useCart } from '../contexts/CartContext'
 
 function Nav() {
+  const { cartItems } = useCart()
+  const totalCount = cartItems.reduce((sum, item) => sum + item.quantity, 0)
   return (
     <nav className="d-flex align-items-center justify-content-between px-4 py-3 border-bottom">
       <Link to="/" className="d-flex align-items-center text-decoration-none">
@@ -14,13 +17,13 @@ function Nav() {
           height="40"
           className="me-2 logo"
         />
-        <span className="fs-4 fw-bold logo-text">Placeholder</span>
+        <span className="fs-4 fw-bold logo-text">PCPartzOnCommand</span>
       </Link>
 
       <ul className="d-flex list-unstyled mb-0 align-items-center">
         <li className="ms-4">
           <NavLink
-            to="/blank-for-now"
+            to="/catalog"
             className="text-dark text-decoration-none fw-bold"
           >
             Shop Products
@@ -37,7 +40,7 @@ function Nav() {
                 className="me-2"
                 alt="Cart"
               />
-              View Cart (0)
+              <span>View Cart ({totalCount})</span>
             </button>
           </Link>
         </li>

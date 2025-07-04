@@ -18,7 +18,6 @@ const brandData = {
       { id: 4, name: 'AMD Ryzen 7 7700X', price: '$399', img: 'https://via.placeholder.com/150' }
     ]
   }
-  // Add more brands here
 }
 
 const BrandCatalog = () => {
