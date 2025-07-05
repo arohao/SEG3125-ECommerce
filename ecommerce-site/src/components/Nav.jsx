@@ -1,6 +1,7 @@
 import { NavLink, Link } from 'react-router-dom'
 import '../styles/component_styles/Nav.css'
 import SearchIcon from '../assets/icons/search-icon.svg'
+import Logo from '../assets/icons/logo.png';
 import CartIcon from '../assets/icons/cart-icon.svg'
 import { useCart } from '../contexts/CartContext'
 
@@ -11,7 +12,7 @@ function Nav() {
     <nav className="d-flex align-items-center justify-content-between px-5 py-3 border-bottom">
       <Link to="/" className="d-flex align-items-center text-decoration-none">
         <img
-          src="https://via.placeholder.com/40"
+          src={Logo}
           alt="Logo"
           width="40"
           height="40"

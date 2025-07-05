@@ -34,3 +34,9 @@ body {
   border-color: #9DEBC3 !important;
   color: #ffffff !important;
 }
+
+.bg-primary {
+  background-color: #56C596 !important;
+  border-color: #56C596 !important;
+  color: #ffffff !important;
+}

@@ -24,7 +24,11 @@ export default function HotDeals() {
 
   return (
     <section className="container my-5">
-      <h2 className="mb-4 text-center">Hot Deals</h2>
+      <div className="text-center mb-4">
+        <h2 className="display-6 fw-bold text-danger">🔥 Hot Deals</h2>
+        <p className="text-muted">These deals won't last long — grab them while they're hot!</p>
+      </div>
+
       <div className="row">
         {hotDeals.map((p) => (
           <div key={p.id} className="col-6 col-md-3 mb-4">
@@ -32,34 +36,44 @@ export default function HotDeals() {
               to={`/catalog?deals=true&brand=${p.brand}&category=${p.category}`}
               className="text-decoration-none text-dark"
             >
-              <div className="card h-100 shadow-sm">
+              <div className="card h-100 shadow-sm border-0 position-relative hover-shadow transition">
                 <img
                   src={p.img}
                   alt={p.name}
-                  className="card-img-top"
+                  className="card-img-top p-3"
                   style={{ objectFit: "contain", height: "150px" }}
                 />
-                <div className="card-body p-2">
-                  <h6 className="card-title">{p.name}</h6>
+                <div className="card-body px-3 pb-3 pt-1">
+                  <h6 className="card-title small fw-semibold">{p.name}</h6>
                   <p className="card-text mb-1">
                     <del className="text-muted me-2">
                       ${p.originalPrice?.toFixed(2)}
                     </del>
-                    <strong>${p.price.toFixed(2)}</strong>
+                    <strong className="text-success">${p.price.toFixed(2)}</strong>
                   </p>
-                  <span className="badge bg-danger">
-                    {Math.round(p.discount * 100)}% OFF
-                  </span>
                 </div>
+                <span
+                  className="badge bg-danger position-absolute top-0 end-0 m-2"
+                  style={{ fontSize: "0.8rem" }}
+                >
+                  {Math.round(p.discount * 100)}% OFF
+                </span>
               </div>
             </Link>
           </div>
         ))}
       </div>
-      <div className="text-center">
-        <Link to="/catalog?deals=true" className="btn btn-primary">
-          See All Hot Deals
-        </Link>
+
+      <div className="row justify-content-center mt-4">
+        <div className="col-10 col-md-5 col-lg-3">
+          <Link
+            to="/catalog?deals=true"
+            className="btn btn-outline-danger w-100 fw-bold py-2"
+            style={{ fontSize: "1.05rem" }}
+          >
+            🔍 See All Hot Deals
+          </Link>
+        </div>
       </div>
     </section>
   );

@@ -13,7 +13,6 @@ const rawProducts = products.map((p) => ({
     : null,
 }));
 
-
 const categories = [
   { slug: "laptops", label: "Laptops & Tablets" },
   { slug: "desktops", label: "Desktops" },
@@ -46,7 +45,6 @@ export default function Catalog() {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedBrands, setSelectedBrands] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState(rawProducts);
-  // dealsFilter: "all" | "deals" | "no-deals"
   const [dealsFilter, setDealsFilter] = useState("all");
 
   const priceValues = rawProducts.map((p) => p.price);
@@ -55,12 +53,26 @@ export default function Catalog() {
   const [minPrice, setMinPrice] = useState(globalMin);
   const [maxPrice, setMaxPrice] = useState(globalMax);
 
+  const [showCategories, setShowCategories] = useState(true);
+  const [showBrands, setShowBrands] = useState(false);
+  const [showPrice, setShowPrice] = useState(false);
+  const [showDeals, setShowDeals] = useState(false);
+
   useEffect(() => {
     const categoriesFromParams = searchParams.getAll("category");
     const brandsFromParams = searchParams.getAll("brand");
+    const dealsParam = searchParams.get("deals");
 
     setSelectedCategories(categoriesFromParams);
     setSelectedBrands(brandsFromParams);
+
+    if (dealsParam === "true") {
+      setDealsFilter("deals");
+    } else if (dealsParam === "false") {
+      setDealsFilter("no-deals");
+    } else {
+      setDealsFilter("all");
+    }
 
     let filtered = rawProducts;
 
@@ -71,20 +83,21 @@ export default function Catalog() {
     }
 
     if (brandsFromParams.length > 0) {
-      filtered = filtered.filter((p) => brandsFromParams.includes(p.brand));
+      filtered = filtered.filter((p) =>
+        brandsFromParams.includes(p.brand)
+      );
     }
 
     filtered = filtered.filter(
       (p) => p.price >= minPrice && p.price <= maxPrice
     );
 
-    if (dealsFilter === "deals") {
+    if (dealsParam === "true") {
       filtered = filtered.filter((p) => p.deal);
-    } else if (dealsFilter === "no-deals") {
+    } else if (dealsParam === "false") {
       filtered = filtered.filter((p) => !p.deal);
     }
 
-    // Sort by % off descending (null % off = 0)
     filtered.sort((a, b) => {
       const aDiscount =
         a.originalPrice && a.originalPrice > a.price
@@ -98,7 +111,7 @@ export default function Catalog() {
     });
 
     setFilteredProducts(filtered);
-  }, [searchParams, minPrice, maxPrice, dealsFilter]);
+  }, [searchParams, minPrice, maxPrice]);
 
   const updateParams = (key, values) => {
     const newParams = new URLSearchParams(searchParams);
@@ -125,6 +138,15 @@ export default function Catalog() {
 
   const handleDealsChange = (value) => {
     setDealsFilter(value);
+    const newParams = new URLSearchParams(searchParams);
+    if (value === "deals") {
+      newParams.set("deals", "true");
+    } else if (value === "no-deals") {
+      newParams.set("deals", "false");
+    } else {
+      newParams.delete("deals");
+    }
+    setSearchParams(newParams);
   };
 
   const handleClearFilters = () => {
@@ -136,30 +158,20 @@ export default function Catalog() {
     setSearchParams({});
   };
 
-  // Local state for controlling collapse toggles (independent)
-  const [showCategories, setShowCategories] = useState(true);
-  const [showBrands, setShowBrands] = useState(false);
-  const [showPrice, setShowPrice] = useState(false);
-  const [showDeals, setShowDeals] = useState(false);
-
   return (
     <>
       <Nav />
       <div className="container py-4">
         <h1 className="mb-4">Catalog</h1>
         <div className="row">
-          {/* Sidebar */}
           <div className="col-md-3 mb-4">
             <div className="card shadow-sm sticky-top" style={{ top: "80px" }}>
               <div className="card-body">
 
-                {/* Manual collapsible toggles */}
                 {/* Categories */}
                 <button
                   className="btn btn-link w-100 text-start"
                   onClick={() => setShowCategories((v) => !v)}
-                  aria-expanded={showCategories}
-                  aria-controls="categoriesFilter"
                 >
                   <strong>Categories</strong>
                   <span className="float-end">
@@ -167,7 +179,7 @@ export default function Catalog() {
                   </span>
                 </button>
                 {showCategories && (
-                  <div id="categoriesFilter" className="mb-3">
+                  <div className="mb-3">
                     {categories.map((cat) => (
                       <div className="form-check" key={cat.slug}>
                         <input
@@ -192,14 +204,12 @@ export default function Catalog() {
                 <button
                   className="btn btn-link w-100 text-start"
                   onClick={() => setShowBrands((v) => !v)}
-                  aria-expanded={showBrands}
-                  aria-controls="brandsFilter"
                 >
                   <strong>Brands</strong>
                   <span className="float-end">{showBrands ? "▲" : "▼"}</span>
                 </button>
                 {showBrands && (
-                  <div id="brandsFilter" className="mb-3">
+                  <div className="mb-3">
                     {brands.map((brand) => (
                       <div className="form-check" key={brand.slug}>
                         <input
@@ -224,14 +234,12 @@ export default function Catalog() {
                 <button
                   className="btn btn-link w-100 text-start"
                   onClick={() => setShowPrice((v) => !v)}
-                  aria-expanded={showPrice}
-                  aria-controls="priceFilter"
                 >
                   <strong>Price Range</strong>
                   <span className="float-end">{showPrice ? "▲" : "▼"}</span>
                 </button>
                 {showPrice && (
-                  <div id="priceFilter" className="mb-3">
+                  <div className="mb-3">
                     <label className="form-label">
                       Min: ${minPrice.toFixed(2)}
                     </label>
@@ -266,14 +274,12 @@ export default function Catalog() {
                 <button
                   className="btn btn-link w-100 text-start"
                   onClick={() => setShowDeals((v) => !v)}
-                  aria-expanded={showDeals}
-                  aria-controls="dealsFilter"
                 >
                   <strong>Deals</strong>
                   <span className="float-end">{showDeals ? "▲" : "▼"}</span>
                 </button>
                 {showDeals && (
-                  <div id="dealsFilter" className="mb-3">
+                  <div className="mb-3">
                     <div className="form-check">
                       <input
                         type="radio"
