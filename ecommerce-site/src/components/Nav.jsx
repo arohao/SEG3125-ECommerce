@@ -8,7 +8,7 @@ function Nav() {
   const { cartItems } = useCart()
   const totalCount = cartItems.reduce((sum, item) => sum + item.quantity, 0)
   return (
-    <nav className="d-flex align-items-center justify-content-between px-4 py-3 border-bottom">
+    <nav className="d-flex align-items-center justify-content-between px-5 py-3 border-bottom">
       <Link to="/" className="d-flex align-items-center text-decoration-none">
         <img
           src="https://via.placeholder.com/40"
@@ -45,16 +45,6 @@ function Nav() {
           </Link>
         </li>
 
-        <li className="ms-4">
-          <img
-            src={SearchIcon}
-            width="30"
-            height="30"
-            alt="Search"
-            className="me-2"
-            role="button"
-          />
-        </li>
       </ul>
     </nav>
   )

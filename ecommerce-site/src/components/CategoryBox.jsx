@@ -12,19 +12,31 @@ const categories = [
 
 const CategoryBox = () => {
   return (
-    <div className="category-box container mt-3 px-4 py-4">
-      <div className="row">
-        {categories.map(({ name, slug, icon }) => (
-          <div key={slug} className="col-6 col-md-4 col-lg-3 mb-3">
-            <Link to={`/catalog?category=${slug}`} className="category-card text-decoration-none text-center">
-              <i className={`bi ${icon} fs-2 mb-2 d-block`}></i>
-              <span className="fw-semibold">{name}</span>
-            </Link>
-          </div>
-        ))}
+    <>
+      <h2 style={{ textAlign: 'center', marginTop: '100px' }}> Browse by Category</h2>
+      <div className="category-box container mt-3 px-4 py-4">
+        <div className="row">
+          {categories.map(({ name, slug, icon }, index) => {
+            // Add 'mx-auto' only to second row items (index 3,4,5)
+            const isSecondRow = index >= 3 && index <= 5;
+            return (
+              <div
+                key={slug}
+                className={`col-6 col-md-4 col-lg-3 mb-3 ${isSecondRow ? 'mx-auto' : ''}`}
+                style={{ textAlign: 'center', }}
+              >
+                <Link to={`/catalog?category=${slug}`} className=" text-decoration-none text-center">
+                  <i className={`bi ${icon} fs-2 mb-2 d-block`}></i>
+                  <span className="fw-semibold">{name}</span>
+                </Link>
+              </div>
+            )
+          })}
+        </div>
       </div>
-    </div>
+    </>
   )
 }
+
 
 export default CategoryBox

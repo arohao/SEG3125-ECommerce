@@ -5,10 +5,12 @@
     "brand": "intel",
     "category": "cpus",
     "price": "$589",
+    "originalPrice": "$750",
     "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRuPBcb4BJPQCaIz0mD3Gcfs70kAdJhHuksGu_xqtjezz3mCp5ANWfyvlN7Q5Fhm0VYNdEslW1Rtzo5lWXQNSVptQsN5BKIN2nNqzXWKncb",
     "rating": 4.9,
     "specs": "24 cores (8P+16E), 5.8GHz Turbo, LGA1700",
-    "inStock": true
+    "inStock": true,
+    "deal": true
   },
   {
     "id": 2,
@@ -30,7 +32,9 @@
     "img": "https://m.media-amazon.com/images/I/61ni3t1ryQL._AC_SL1500_.jpg",
     "rating": 4.7,
     "specs": "Silent clicks, 8K DPI, ergonomic",
-    "inStock": true
+    "inStock": true,
+    "originalPrice": "$129",
+    "deal": true
   },
   {
     "id": 4,
@@ -52,7 +56,9 @@
     "img": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRwrjDh4A1nxU-tPG0upADrgFmPMBpwLe8zSRV8w1x06VMN1ecbO6rYNB8poAZ2hqwOPD3lPbeUSasU68Mh08ZKaHNye29eq1mOUUz_7pNAmjge_K7eCi1Y",
     "rating": 4.2,
     "specs": "Intel i5, 16GB RAM, 512GB SSD",
-    "inStock": true
+    "inStock": true,
+    "originalPrice": "$899",
+    "deal": true
   },
   {
     "id": 6,
@@ -74,7 +80,9 @@
     "img": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcStyY1n5pTgbI-neZ2Gc7FWMH1jJuHFbprOZPpyV9B_Gm_Qd_7OYjNh2HXPIWfClISVhh_7rsD5ExFiDmm8AMLKnv1n3JCmbXhg5yt_p7V4",
     "rating": 4.5,
     "specs": "27\" QHD, 99% sRGB, USB-C",
-    "inStock": true
+    "inStock": true,
+    "originalPrice": "$399",
+    "deal": true
   },
   {
     "id": 8,
@@ -96,7 +104,9 @@
     "img": "https://m.media-amazon.com/images/I/71f5Eu5lJSL._AC_SL1500_.jpg",
     "rating": 4.8,
     "specs": "M2 chip, 13.6-inch Retina display, 8GB RAM, 256GB SSD",
-    "inStock": true
+    "inStock": true,
+    "originalPrice": "$1299",
+    "deal": true
   },
   {
     "id": 10,
@@ -118,7 +128,9 @@
     "img": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRDu43IJ243dPg5kHRJq2n_62XeI2uhG1xO_47ZLaH3tbv6YyweKiFUogLIv3HGtP0SKpQSPRpaCKr6x81P3uH6JLpzZ38TZKgMF0e8BFFUDW9s00NwxHGTnw",
     "rating": 4.6,
     "specs": "20K DPI Optical Sensor, 8 programmable buttons",
-    "inStock": true
+    "inStock": true,
+    "originalPrice": "$59",
+    "deal": true
   },
   {
     "id": 12,
@@ -140,7 +152,9 @@
     "img": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRUncH1zWd-s5Yl8m4VO-OpFvhjXbj2PKH1gYT-0Ww3ZwcmVEN8Gen3jBK9Tox0KnXvvGtSjABAh9z_ZHs1PXzG5jyH-RSwd1J6WpTLlJ0",
     "rating": 4.5,
     "specs": "16 cores (8P+8E), 5.4GHz Turbo, LGA1700",
-    "inStock": true
+    "inStock": true,
+    "originalPrice": "$459",
+    "deal": true
   },
   {
     "id": 14,
@@ -184,7 +198,9 @@
     "img": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRCKO4Zwt9fLYjF-7Fvpe0ahIlqU9Kb29jOcoewRdH8olryyJXRV4nMeY18xYd0Q8T8NQ1wXqGwtx14LLpnbFTCyjGLR3edAA",
     "rating": 4.8,
     "specs": "Omnipoint adjustable switches, OLED display",
-    "inStock": true
+    "inStock": true,
+    "originalPrice": "$219",
+    "deal": true
   },
   {
     "id": 18,
@@ -239,7 +255,9 @@
     "img": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcT2bKM1HQTnaTddVEB6bZ87155siplRK3chvpP1nO4jBYGtYFecoVT6vr_4iLgjzAuUlOgbeAHXy_v-1SN4iOGYo6yhDcu-",
     "rating": 4.6,
     "specs": "Intel i7, 16GB RAM, 512GB SSD, 3.5K OLED",
-    "inStock": true
+    "inStock": true,
+    "originalPrice": "$1899",
+    "deal": true
   },
   {
     "id": 23,

@@ -15,18 +15,21 @@ const toSlug = (str) => str.toLowerCase().replace(/\s+/g, '-')
 
 const ShopByBrand = () => {
   return (
-    <div className="shop-brand-container d-flex flex-wrap justify-content-center gap-4 p-4">
-      {brands.map((brand) => (
-        <Link
-          key={brand.name}
-          to={`/catalog?brand=${toSlug(brand.name)}`}
-          className="brand-card text-center p-2 text-decoration-none"
-        >
-          <img src={brand.logo} alt={brand.name} className="brand-logo mb-2" />
-          <div className="brand-name">{brand.name}</div>
-        </Link>
-      ))}
-    </div>
+    <>
+      <h2 style={{ textAlign: 'center', }} className='m-5' >Our Top Brands</h2>
+      <div className="shop-brand-container d-flex flex-wrap justify-content-center gap-2">
+        {brands.map((brand) => (
+          <Link
+            key={brand.name}
+            to={`/catalog?brand=${toSlug(brand.name)}`}
+            className="brand-card text-center p-2 text-decoration-none"
+          >
+            <img src={brand.logo} alt={brand.name} className="brand-logo mb-2" />
+            <div className="brand-name">{brand.name}</div>
+          </Link>
+        ))}
+      </div>
+    </>
   )
 }
 

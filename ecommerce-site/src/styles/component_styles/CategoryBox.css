@@ -11,6 +11,20 @@
   border-radius: 0.75rem;
 }
 
+.category-card {
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  /* space inside the border */
+  transition: border-color 0.3s ease;
+  text-align: center;
+}
+
+.category-card:hover {
+  border-color: #007bff;
+  /* highlight border on hover */
+}
+
 .featured-category {
   font-weight: bold;
   color: #56c596;
